@@ -42,7 +42,6 @@ public class PlayerMover : MonoBehaviour, IAttackable
     private void Start()
     {
         EquipManager.Instance.player = this;
-        ObjectPooling.Instacne.AddObjects("bolt", proj, 5);
     }
     private void Update()
     {

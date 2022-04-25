@@ -11,6 +11,34 @@ public class Player : MonoBehaviour, IAttackable
     public int damage = 5;
     public int maxHp = 100;
     public int curHp = 100;
+    [SerializeField]
+    private int level = 1;
+    [SerializeField]
+    private float curExp = 0;
+    [SerializeField]
+    private float maxExp = 10;
+
+    public float EXP
+    {
+        get
+        {
+            return curExp;
+        }
+        set
+        {
+            curExp = value;
+            if(curExp >= maxExp)
+            {
+                level++;
+                curExp -= maxExp;
+                maxExp = maxExp * 1.2f;
+                UIManager.Instance.curLevel.text = level.ToString();
+                RewardManager.Instance.ExcuteReward();
+            }
+            print(curExp / maxExp);
+            UIManager.Instance.curExpBar.fillAmount = curExp / maxExp;
+        }
+    }
 
     Animator anim;
     SpriteRenderer sr;
@@ -30,20 +58,22 @@ public class Player : MonoBehaviour, IAttackable
 
     void Start()
     {
+        GameManager.Instance.player = this;
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        ObjectPooling.Instacne.AddObjects("aaa", projectile, 5);
+        ObjectPooling.Instance.AddObjects("aaa", projectile, 5);
     }
 
     void Update()
     {
+        if (!GameManager.Instance.isPlay) return;
+
+
         Move();
 
         Tracking();
 
         Attack();
-
-
 
     }
     private void Move()
@@ -87,19 +117,26 @@ public class Player : MonoBehaviour, IAttackable
 
     public void Attack()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            GameObject obj = ObjectPooling.Instacne.ObjectUse("aaa");
+            EXP++;
+            GameObject obj = ObjectPooling.Instance.ObjectUse("aaa");
             obj.transform.position = weaponPoint.position;
             obj.transform.rotation = Quaternion.identity * Quaternion.Euler(0, 0, angle);
             Projectile proj = obj.GetComponent<Projectile>();
             proj.SetUp(damage, 2);
-            float posX = weaponDistance * Mathf.Cos(angle * Mathf.Deg2Rad);
-            float posY = weaponDistance * Mathf.Sin(angle * Mathf.Deg2Rad);
+            float posX = weaponDistance * 1.5f * Mathf.Cos(angle * Mathf.Deg2Rad);
+            float posY = weaponDistance * 1.5f * Mathf.Sin(angle * Mathf.Deg2Rad);
             proj.rb.AddForce(new Vector2(posX, posY) * ShotPower);
 
             //Projectile proj = Instantiate(obj, weaponPoint.position, Quaternion.identity * Quaternion.Euler(0, 0, angle));
 
         }
+    }
+
+    public void ExpUp(int exp)
+    {
+        EXP += exp;
+        
     }
 }

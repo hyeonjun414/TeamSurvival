@@ -6,7 +6,7 @@ public class SingletonManager<T> : MonoBehaviour where T: MonoBehaviour
 {
 
 private static T _instance;
-public static T Instacne{
+public static T Instance{
 
 get{
    _instance = FindObjectOfType<T>();

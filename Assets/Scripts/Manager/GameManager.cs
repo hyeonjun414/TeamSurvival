@@ -3,24 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletonManager<GameManager>
 {
-    private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if(instance == null)
-                instance = FindObjectOfType<GameManager>();
-
-            return instance;
-        }
-    }
-    private void Awake()
-    {
-        instance = this;
-
-    }
+    public Player player;
 
     public Canvas canvas;
     public GameObject dialog;
@@ -29,6 +14,9 @@ public class GameManager : MonoBehaviour
 
     public DamageText dt;
 
+    public bool isPlay;
+
+    
     public void SetActiveDialog(bool Active)
     {
         dialog.SetActive(Active);
@@ -43,5 +31,16 @@ public class GameManager : MonoBehaviour
         //Vector3 initPos = Camera.main.WorldToScreenPoint(pos);
         DamageText temp = Instantiate(dt, pos, Quaternion.identity, canvas.transform);
         temp.damageText.text = damage.ToString();
+    }
+    
+    public void PlayGame()
+    {
+        isPlay = true;
+        Time.timeScale = 1;
+    }
+    public void PauseGame()
+    {
+        isPlay = false;
+        Time.timeScale = 0;
     }
 }

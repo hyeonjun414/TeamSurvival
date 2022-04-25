@@ -15,7 +15,30 @@ public class Projectile : MonoBehaviour
     public void SetUp(int damage, int duration)
     {
         this.damage = damage;
-        //Destroy(gameObject, duration);
+        Invoke("ReturnProj", duration);
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.tag == "Enemy" && !other.collider.isTrigger)
+        {
+            IDamageable enemy = other.collider.GetComponent<IDamageable>();
+            enemy?.Hit(damage);
+
+            if (effect != null)
+            {
+                
+                Instantiate(effect, other.contacts[0].point, Quaternion.identity);
+            }
+            ReturnProj();
+        }
+        else if (other.collider.tag == "Wall")
+        {
+            if (effect != null)
+            {
+                Instantiate(effect, other.contacts[0].point, Quaternion.identity);
+            }
+            ReturnProj();
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,10 +50,8 @@ public class Projectile : MonoBehaviour
             if (effect != null)
             {
                 Instantiate(effect, transform.position, Quaternion.identity);
-
             }
-            //Destroy(gameObject);
-            ObjectPooling.Instacne.ObjectReturn("aaa",gameObject);
+            ReturnProj();
             gameObject.SetActive(false);
         }
         else if(other.tag == "Wall")
@@ -38,11 +59,19 @@ public class Projectile : MonoBehaviour
             if(effect != null)
             {
                 Instantiate(effect, transform.position, Quaternion.identity);
-
             }
-            //Destroy(gameObject);
-            ObjectPooling.Instacne.ObjectReturn("aaa", gameObject);
+            ReturnProj();
         }
         
+    }
+    public void ReturnProj()
+    {
+        ObjectPooling.Instance.ObjectReturn("aaa", gameObject);
+    }
+    private void OnDisable()
+    {
+        rb.velocity = Vector3.zero;
+        damage = 0;
+        CancelInvoke("ReturnProj");
     }
 }
