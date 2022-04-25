@@ -6,11 +6,11 @@ public class Monster : MonoBehaviour
 {
     public int hp = 50;
     public float velocity = 1;
-
+    public float dmg;
     private Transform playerTransform;
     private Animator monsterAnimator;
     private SpriteRenderer spriteRenderer;
-  
+    
     private void Awake()
     {
 

@@ -94,7 +94,7 @@ public class MonsterSpawn : MonoBehaviour
 
 
 
-
+            Spawn("Chort", 10);
             Spawn("Img", 20);
 
             yield return second;
