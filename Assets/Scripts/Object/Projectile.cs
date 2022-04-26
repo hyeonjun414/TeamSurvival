@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public string projName;
     public Rigidbody2D rb;
     public int damage;
 
@@ -27,7 +28,8 @@ public class Projectile : MonoBehaviour
             if (effect != null)
             {
                 
-                Instantiate(effect, other.contacts[0].point, Quaternion.identity);
+                Effect obj = Instantiate(effect, other.contacts[0].point, Quaternion.identity);
+                obj.transform.localScale = transform.localScale;
             }
             ReturnProj();
         }
@@ -35,7 +37,8 @@ public class Projectile : MonoBehaviour
         {
             if (effect != null)
             {
-                Instantiate(effect, other.contacts[0].point, Quaternion.identity);
+                Effect obj = Instantiate(effect, other.contacts[0].point, Quaternion.identity);
+                obj.transform.localScale = transform.localScale;
             }
             ReturnProj();
         }
@@ -49,7 +52,8 @@ public class Projectile : MonoBehaviour
 
             if (effect != null)
             {
-                Instantiate(effect, transform.position, Quaternion.identity);
+                Effect obj = Instantiate(effect, other.transform.position, Quaternion.identity);
+                obj.transform.localScale = transform.localScale;
             }
             ReturnProj();
             gameObject.SetActive(false);
@@ -58,7 +62,8 @@ public class Projectile : MonoBehaviour
         {
             if(effect != null)
             {
-                Instantiate(effect, transform.position, Quaternion.identity);
+                Effect obj = Instantiate(effect, other.transform.position, Quaternion.identity);
+                obj.transform.localScale = transform.localScale;
             }
             ReturnProj();
         }
@@ -66,7 +71,7 @@ public class Projectile : MonoBehaviour
     }
     public void ReturnProj()
     {
-        ObjectPooling.Instance.ObjectReturn("aaa", gameObject);
+        ObjectPooling.Instance.ObjectReturn(projName, gameObject);
     }
     private void OnDisable()
     {

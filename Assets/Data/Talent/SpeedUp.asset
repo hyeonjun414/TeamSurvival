@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcb1cff8a39a7d439391539c472e065, type: 3}
+  m_Name: SpeedUp
+  m_EditorClassIdentifier: 
+  name: "\uC774\uB3D9\uC18D\uB3C4 \uC0C1\uC2B9"
+  desc: "\uD50C\uB808\uC774\uC5B4\uAC00 10% \uB354 \uBE68\uB9AC \uC6C0\uC9C1\uC778\uB2E4."
+  icon: {fileID: -8876582243915362825, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
+  type: 2
+  value: 1.1

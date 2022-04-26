@@ -14,6 +14,8 @@ public class GameManager : SingletonManager<GameManager>
 
     public DamageText dt;
 
+    public GameObject[] projectiles;
+
     public bool isPlay;
 
     
@@ -43,4 +45,10 @@ public class GameManager : SingletonManager<GameManager>
         isPlay = false;
         Time.timeScale = 0;
     }
+
+    public void TalentSelect(TalentData data)
+    {
+        player.TalentApply(data);
+    }
+
 }

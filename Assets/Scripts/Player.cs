@@ -18,6 +18,14 @@ public class Player : MonoBehaviour, IAttackable
     [SerializeField]
     private float maxExp = 10;
 
+    public bool isMultiShot = false;
+    public float multiShotAngle = 10f;
+    public int projLevel = 0;
+    public float coolTime = 1f;
+    public float projScale = 1f;
+    public float projSpeed = 1f;
+    public float attackSpeed = 1f;
+
     public float EXP
     {
         get
@@ -33,10 +41,27 @@ public class Player : MonoBehaviour, IAttackable
                 curExp -= maxExp;
                 maxExp = maxExp * 1.2f;
                 UIManager.Instance.curLevel.text = level.ToString();
-                RewardManager.Instance.ExcuteReward();
+                RewardManager.Instance.ExcuteReward(RewardType.Talent);
             }
             print(curExp / maxExp);
             UIManager.Instance.curExpBar.fillAmount = curExp / maxExp;
+        }
+    }
+    public int ProjLevel
+    {
+        get 
+        { 
+            return projLevel;
+        }
+        set 
+        {
+            projLevel = value;
+            if(projLevel < GameManager.Instance.projectiles.Length)
+            {
+                projectile = GameManager.Instance.projectiles[value];
+                projKey = projectile.name;
+                ObjectPooling.Instance.AddObjects(projKey, projectile, 10);
+            }
         }
     }
 
@@ -52,16 +77,22 @@ public class Player : MonoBehaviour, IAttackable
     public Vector2 rightHandOffset;
 
     public GameObject projectile;
+    public string projKey = "";
 
     Vector2 mouse;
     float angle;
+
+    bool isDelay = false;
 
     void Start()
     {
         GameManager.Instance.player = this;
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        ObjectPooling.Instance.AddObjects("aaa", projectile, 5);
+        projectile = GameManager.Instance.projectiles[projLevel];
+        projKey = projectile.name;
+        ObjectPooling.Instance.AddObjects(projKey, projectile, 10);
+        
     }
 
     void Update()
@@ -117,26 +148,105 @@ public class Player : MonoBehaviour, IAttackable
 
     public void Attack()
     {
+        if (isDelay) return;
+
         if (Input.GetButtonDown("Fire1"))
         {
+            GameObject obj;
+            Projectile proj;
             EXP++;
-            GameObject obj = ObjectPooling.Instance.ObjectUse("aaa");
-            obj.transform.position = weaponPoint.position;
-            obj.transform.rotation = Quaternion.identity * Quaternion.Euler(0, 0, angle);
-            Projectile proj = obj.GetComponent<Projectile>();
-            proj.SetUp(damage, 2);
-            float posX = weaponDistance * 1.5f * Mathf.Cos(angle * Mathf.Deg2Rad);
-            float posY = weaponDistance * 1.5f * Mathf.Sin(angle * Mathf.Deg2Rad);
-            proj.rb.AddForce(new Vector2(posX, posY) * ShotPower);
+            float posX;
+            float posY;
+            if (isMultiShot)
+            {
+                for(int i = -1; i<2; i++)
+                {
+                    float curAngle = angle + multiShotAngle * i;
+                    obj = ObjectPooling.Instance.ObjectUse(projKey);
+                    obj.transform.position = weaponPoint.position;
+                    obj.transform.rotation = Quaternion.identity * Quaternion.Euler(0, 0, curAngle);
+                    obj.transform.localScale = new Vector3(projScale, projScale, 0);
+                    proj = obj.GetComponent<Projectile>();
+                    proj.SetUp(damage, 2);
+                    posX = weaponDistance * 1.5f * Mathf.Cos(curAngle * Mathf.Deg2Rad);
+                    posY = weaponDistance * 1.5f * Mathf.Sin(curAngle * Mathf.Deg2Rad);
+                    proj.rb.AddForce(new Vector2(posX, posY) * ShotPower * projSpeed);
+                }
+            }
+            else
+            {
+                obj = ObjectPooling.Instance.ObjectUse(projKey);
+                obj.transform.position = weaponPoint.position;
+                obj.transform.rotation = Quaternion.identity * Quaternion.Euler(0, 0, angle);
+                obj.transform.localScale = new Vector3(projScale, projScale, 0);
+                proj = obj.GetComponent<Projectile>();
+                proj.SetUp(damage, 2);
+                posX = weaponDistance * 1.5f * Mathf.Cos(angle * Mathf.Deg2Rad);
+                posY = weaponDistance * 1.5f * Mathf.Sin(angle * Mathf.Deg2Rad);
+                proj.rb.AddForce(new Vector2(posX, posY) * ShotPower * projSpeed);
+            }
 
-            //Projectile proj = Instantiate(obj, weaponPoint.position, Quaternion.identity * Quaternion.Euler(0, 0, angle));
-
+            StartCoroutine("AttackDelay");
+        }
+    }
+    IEnumerator AttackDelay()
+    {
+        isDelay = true;
+        float curTime = 0;
+        while(true)
+        {
+            curTime += Time.deltaTime;
+            if(attackSpeed <= curTime)
+            {
+                isDelay = false;
+                yield break;
+            }
+            else
+            {
+                UIManager.Instance.curDelayBar.fillAmount = curTime / attackSpeed;
+            }
+            yield return null;
         }
     }
 
     public void ExpUp(int exp)
     {
         EXP += exp;
-        
     }
+
+    public void TalentApply(TalentData data)
+    {
+        switch(data.type)
+        {
+            case TalentType.HealthUp:
+                curHp = (int)(curHp * data.value);
+                maxHp = (int)(maxHp * data.value);
+                break;
+            case TalentType.DamageUp:
+                damage = (int)(damage * data.value);
+                break;
+            case TalentType.SpeedUp:
+                moveSpeed = moveSpeed * data.value;
+                break;
+            case TalentType.CooltimeReduce:
+                coolTime *= data.value;
+                break;
+            case TalentType.Proj_Scale:
+                projScale = projScale * data.value;
+                break;
+            case TalentType.Proj_Speed:
+                projSpeed = projSpeed * data.value;
+                break;
+            case TalentType.Proj_MultiShot:
+                isMultiShot = true;
+                break;
+            case TalentType.Proj_PowerUp:
+                ProjLevel++;
+                break;
+            case TalentType.AttackSpeedUp:
+                attackSpeed = attackSpeed * data.value;
+                break;
+        }
+    }
+
 }

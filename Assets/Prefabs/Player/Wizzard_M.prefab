@@ -254,12 +254,18 @@ MonoBehaviour:
   level: 1
   curExp: 0
   maxExp: 10
+  isMultiShot: 0
+  multiShotAngle: 10
+  projLevel: 0
+  coolTime: 1
+  projScale: 1
+  projSpeed: 1
+  attackSpeed: 0.5
   weaponPoint: {fileID: 3104982783151669595}
   weaponDistance: 1
   leftHandOffset: {x: 0.1, y: -0.7}
   rightHandOffset: {x: -0.1, y: -0.7}
-  projectile: {fileID: 2796036625970161891, guid: 2e1ebb2d6d4f67c4d91b1f61c94cb065,
-    type: 3}
+  projectile: {fileID: 0}
 --- !u!1 &3104982783151669592
 GameObject:
   m_ObjectHideFlags: 0
