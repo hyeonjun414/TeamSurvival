@@ -2,29 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Skill : MonoBehaviour
-{   
-    public SkillData skillData = null;    
+public abstract class Skill : MonoBehaviour,IAttackable
+{
+    public Player owner;
     public float curCooldown = 0f;
     public float cooldown;
+    public int damage;
 
-    private void Start() {
-        if(null != skillData)
-        {
-            cooldown = skillData.cooldown;
-        }
+    public SkillData data;
+
+    protected virtual void Start()
+    {
+        owner = GameManager.Instance.player;
     }
-    private void Update() {
+
+    protected virtual void Update() {
         curCooldown += Time.deltaTime;
         if (curCooldown >= cooldown)
         {
-            skillData.Use();
+            Attack();
             curCooldown = 0f;
         }
         
     }
 
-    public void LevelUp(){
-        skillData.level++;
-    }
+    public abstract void Attack();
+    public abstract void SetUp();
 }

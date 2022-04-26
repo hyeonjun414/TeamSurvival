@@ -10,6 +10,7 @@ public class RewardUnit : MonoBehaviour
     public Text title;
     public Text desc;
 
+    [SerializeField]
     RewardData curItemData;
 
     public void AddReward(RewardData data)

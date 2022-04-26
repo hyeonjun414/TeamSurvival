@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Effect : MonoBehaviour
 {
-    void DestroyMyself()
+    public void DestroyMyself()
     {
         Destroy(gameObject);
     }

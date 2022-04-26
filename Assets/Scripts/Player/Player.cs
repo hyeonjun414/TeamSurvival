@@ -41,7 +41,7 @@ public class Player : MonoBehaviour, IAttackable
                 curExp -= maxExp;
                 maxExp = maxExp * 1.2f;
                 UIManager.Instance.curLevel.text = level.ToString();
-                RewardManager.Instance.ExcuteReward(RewardType.Talent);
+                RewardManager.Instance.ExcuteReward(RewardType.Skill);
             }
             print(curExp / maxExp);
             UIManager.Instance.curExpBar.fillAmount = curExp / maxExp;
@@ -72,6 +72,7 @@ public class Player : MonoBehaviour, IAttackable
     float hSpeed;
 
     public Transform weaponPoint;
+    public Transform skillPos;
     public float weaponDistance = 1f;
     public Vector2 leftHandOffset;
     public Vector2 rightHandOffset;
@@ -170,7 +171,7 @@ public class Player : MonoBehaviour, IAttackable
                     proj.SetUp(damage, 2);
                     posX = weaponDistance * 1.5f * Mathf.Cos(curAngle * Mathf.Deg2Rad);
                     posY = weaponDistance * 1.5f * Mathf.Sin(curAngle * Mathf.Deg2Rad);
-                    proj.rb.AddForce(new Vector2(posX, posY) * ShotPower * projSpeed);
+                    proj.rb.AddForce(new Vector2(posX, posY) * ShotPower * projSpeed, ForceMode2D.Impulse);
                 }
             }
             else
@@ -183,7 +184,7 @@ public class Player : MonoBehaviour, IAttackable
                 proj.SetUp(damage, 2);
                 posX = weaponDistance * 1.5f * Mathf.Cos(angle * Mathf.Deg2Rad);
                 posY = weaponDistance * 1.5f * Mathf.Sin(angle * Mathf.Deg2Rad);
-                proj.rb.AddForce(new Vector2(posX, posY) * ShotPower * projSpeed);
+                proj.rb.AddForce(new Vector2(posX, posY) * ShotPower * projSpeed, ForceMode2D.Impulse);
             }
 
             StartCoroutine("AttackDelay");

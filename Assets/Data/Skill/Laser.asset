@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a63d8d1c0bdfff43800906f304b90d2, type: 3}
+  m_Name: Laser
+  m_EditorClassIdentifier: 
+  name: "\uC774\uBE14\uC544\uC774"
+  desc: "\uD50C\uB808\uC774\uC5B4\uB97C \uB530\uB77C\uB2E4\uB2C8\uBA70 \uC8FC\uBCC0\uC5D0
+    \uB808\uC774\uC800 \uACF5\uACA9\uC744 \uD558\uB294 \uC18C\uD658\uC218\uB97C \uC5BB\uB294\uB2E4."
+  icon: {fileID: -4021793204748226321, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
+  rewardType: 1
+  skillType: 2
+  targetSkill: {fileID: 4855689615658303247, guid: 96df58e6a810027479d644976980d9f1,
+    type: 3}

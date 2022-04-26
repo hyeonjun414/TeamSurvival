@@ -11,4 +11,7 @@ public class UIManager : SingletonManager<UIManager>
     public Image curDelayBar;
 
     public GameObject dlgReward;
+    public GameObject dlgSkillSlot;
+
+
 }

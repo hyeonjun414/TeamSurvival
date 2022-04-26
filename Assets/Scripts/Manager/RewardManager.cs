@@ -5,6 +5,7 @@ using UnityEngine;
 public class RewardManager : SingletonManager<RewardManager>
 {
     public TalentData[] talentDatas;
+    public SkillData[] skillDatas;
     public List<RewardData> rewardList;
     RewardUI rewardUI;
 
@@ -55,6 +56,20 @@ public class RewardManager : SingletonManager<RewardManager>
     }
     public void RandomSkill()
     {
-
+        int rand;
+        for (int i = 0; rewardList.Count < 3;)
+        {
+            rand = Random.Range(0, skillDatas.Length);
+            if (rewardList.Contains(skillDatas[rand]))
+            {
+                rand = Random.Range(0, skillDatas.Length);
+            }
+            else
+            {
+                rewardList.Add(skillDatas[rand]);
+                print(skillDatas[rand]);
+                i++;
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Monster : MonoBehaviour,IDamageable
 {
     public int hp = 50;
     public float velocity = 1;
@@ -10,7 +10,12 @@ public class Monster : MonoBehaviour
     private Transform playerTransform;
     private Animator monsterAnimator;
     private SpriteRenderer spriteRenderer;
-    
+
+    public void Hit(int damage)
+    {
+        hp -= damage;
+    }
+
     private void Awake()
     {
 

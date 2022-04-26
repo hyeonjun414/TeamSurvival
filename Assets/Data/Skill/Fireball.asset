@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a63d8d1c0bdfff43800906f304b90d2, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  name: "\uD30C\uC774\uC5B4\uBCFC"
+  desc: "\uBC18\uACBD \uC774\uB0B4\uC758 \uBAAC\uC2A4\uD130\uC5D0\uAC8C \uBD88\uB369\uC774\uB97C
+    \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
+  icon: {fileID: 2180804341999006710, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
+  rewardType: 1
+  skillType: 1
+  targetSkill: {fileID: 8983952298104487563, guid: 9ed1120020f4a1842a470a769085e6d6,
+    type: 3}
