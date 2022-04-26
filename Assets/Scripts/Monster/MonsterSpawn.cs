@@ -25,7 +25,7 @@ public class MonsterSpawn : MonoBehaviour
         {
             int count =  objBundles[i].count;
 
-            ObjectPooling.Instacne.AddObjects(objBundles[i].key, objBundles[i].prefabObj, objBundles[i].count);
+            ObjectPooling.Instance.AddObjects(objBundles[i].key, objBundles[i].prefabObj, objBundles[i].count);
 
         }
 
@@ -42,7 +42,7 @@ public class MonsterSpawn : MonoBehaviour
     {
        var go = objBundles.Find(x => x.key == key);
 
-       var objs =  ObjectPooling.Instacne.objectsDictionary[key];
+       var objs =  ObjectPooling.Instance.objectsDictionary[key];
 
        ObjectPoolConfig[] objCon =  FindObjectsOfType<ObjectPoolConfig>();
         int totalCount = 0;
@@ -77,7 +77,7 @@ public class MonsterSpawn : MonoBehaviour
                 int randomIndex = (int)Random.Range(0, spawnTransform.Count);
                 int randomPosX = Random.Range(0, 3);
                 int randomPosY = Random.Range(0, 3);
-                GameObject monster = ObjectPooling.Instacne.ObjectUse(key);
+                GameObject monster = ObjectPooling.Instance.ObjectUse(key);
                 monster.transform.position =
                     new Vector2( spawnTransform[randomIndex].position.x + randomPosX , spawnTransform[randomIndex].position.y + randomPosY) ;
 
