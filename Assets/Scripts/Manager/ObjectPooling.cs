@@ -125,6 +125,32 @@ public class ObjectPooling : SingletonManager<ObjectPooling>
         objectsDictionary.Clear();
 
     }
+
+
+
+    public void ObjectKeySelectReset(string key)
+    {
+        if (!objectsDictionary.ContainsKey(key))
+        {
+            Debug.LogError("오브젝트 풀링 키없음");
+            return;
+
+        }
+
+
+       var objectpoolingStack =  objectsDictionary[key];
+
+       while(objectpoolingStack.Count > 0)
+        {
+           GameObject gameObj =   objectpoolingStack.Pop();
+           Destroy(gameObj);
+        }
+
+
+
+        objectsDictionary.Remove(key);
+
+    }
 }
 
 
