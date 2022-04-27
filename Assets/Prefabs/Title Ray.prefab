@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3682786778132754530}
   - component: {fileID: 3682786778132754531}
   m_Layer: 0
-  m_Name: Line Effect
+  m_Name: Title Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1356797015
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 1, y: 0, z: 1}

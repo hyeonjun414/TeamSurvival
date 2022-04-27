@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7183629508442712151}
   - component: {fileID: 3987118621562111867}
   - component: {fileID: 1391645546232980269}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wave
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -137,6 +137,8 @@ MonoBehaviour:
   projName: Wave
   rb: {fileID: 0}
   damage: 0
+  isExplosion: 0
+  explosionRange: 0
   effect: {fileID: 642082596461956590, guid: 19b6615139a72e04a8f0e1a8aa321a5e, type: 3}
 --- !u!95 &1391645546232980269
 Animator:

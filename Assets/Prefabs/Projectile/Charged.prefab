@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5873707764610094520}
   - component: {fileID: 7938771713400054921}
   - component: {fileID: 7530392596626871754}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Charged
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -137,6 +137,8 @@ MonoBehaviour:
   projName: Charged
   rb: {fileID: 0}
   damage: 0
+  isExplosion: 0
+  explosionRange: 0
   effect: {fileID: 8712755137766424151, guid: b5c9d3ef1ad9ff94ebcc025f9ba6bd46, type: 3}
 --- !u!95 &7530392596626871754
 Animator:

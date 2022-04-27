@@ -14,6 +14,7 @@ public class Monster : MonoBehaviour , IDamageable
     protected Transform playerTransform;
     protected Animator monsterAnimator;
     protected SpriteRenderer spriteRenderer;
+    protected Rigidbody2D rb;
 
     private Color attackedColor;
     private Color noneAttackedColor;
@@ -27,7 +28,7 @@ public class Monster : MonoBehaviour , IDamageable
         monsterAnimator = GetComponent<Animator>();
         playerTransform = FindObjectOfType<Player>().transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        rb = GetComponent<Rigidbody2D>();
         if(monsterData != null)
         {
             hp = monsterData.hp;
@@ -44,12 +45,15 @@ public class Monster : MonoBehaviour , IDamageable
         attackedColor = new Color(255, 0, 0);
         noneAttackedColor = new Color(255, 255, 255);
         spriteRenderer.color = noneAttackedColor;
+        //monsterAnimator.enabled = false;
+        //spriteRenderer.enabled = false;
        
     }
     
 
-    private void Update()
+    private void FixedUpdate()
     {
+        //if (!GameManager.Instance.isPlay) return;
         Mover();
 
         if(!is_Attacked && attackedCount > 0)
@@ -65,8 +69,9 @@ public class Monster : MonoBehaviour , IDamageable
     {
 
         Vector2 dir = playerTransform.position - gameObject.transform.position;
-        transform.Translate(dir.normalized * velocity * Time.deltaTime);
-        
+        //transform.Translate(dir.normalized * velocity * Time.deltaTime);
+        //transform.position += (Vector3)(dir.normalized * velocity * Time.deltaTime);
+        rb.position += (dir.normalized * velocity * Time.deltaTime);
         if (Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y) > 0.5f)
         {
             if (!monsterAnimator.GetBool("isMove"))
@@ -75,7 +80,7 @@ public class Monster : MonoBehaviour , IDamageable
 
             }
 
-            transform.Translate(dir.normalized * velocity * Time.deltaTime);
+            //transform.position += (Vector3)(dir.normalized * velocity * Time.deltaTime);
 
         }
         else

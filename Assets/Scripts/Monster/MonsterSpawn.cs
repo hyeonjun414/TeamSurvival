@@ -116,7 +116,7 @@ public class MonsterSpawn : MonoBehaviour
 
 
 
-          Spawn(objBundles[index].key, 30);
+          Spawn(objBundles[index].key, objBundles[index].count);
            
 
             yield return second;

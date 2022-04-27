@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5959075091355338154}
   - component: {fileID: 7862537151428555931}
   - component: {fileID: 7759751659055072734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pulse
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -137,6 +137,8 @@ MonoBehaviour:
   projName: Pulse
   rb: {fileID: 0}
   damage: 0
+  isExplosion: 0
+  explosionRange: 0
   effect: {fileID: 7950207701468523360, guid: 2681da3cd0616514db11ae04c55341a4, type: 3}
 --- !u!95 &7759751659055072734
 Animator:
