@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Demon_Big
   m_EditorClassIdentifier: 
   monsterName: Demon
-  hp: 100
+  hp: 10
   damage: 4
-  velocity: 2
+  velocity: 1
   image: {fileID: 21300000, guid: 6d652c058b8e36c498f8a15c1ddfb2c3, type: 3}
-  count: 50
-  maxCount: 50
+  count: 100
+  maxCount: 100
   monsterObj: {fileID: 510174172535402046, guid: a9ad6380db7ed594e80ba30c06db8d6d,
     type: 3}

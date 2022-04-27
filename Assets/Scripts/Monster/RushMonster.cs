@@ -18,7 +18,7 @@ public class RushMonster : Monster
 
 
     private bool is_wait = false;
-    private Vector2 aimPos;
+    private Vector3 aimPos;
     private RushMonsterState state;
 
 
@@ -26,7 +26,7 @@ public class RushMonster : Monster
     public override void Mover()
     {
 
-        Vector2 dir = new Vector2();
+        Vector2 dir;
 
 
         switch (state)
@@ -36,16 +36,18 @@ public class RushMonster : Monster
             {
                    
 
-                    if (Vector2.Distance(aimPos ,transform.position) > 0.1f)
+                    if (Vector2.Distance(aimPos ,transform.position) > 1f)
                     {
-                        dir = aimPos - new Vector2(transform.position.x , transform.position.y);
-                        transform.Translate(dir * 15 * Time.deltaTime);
+                        dir = aimPos - transform.position;
+                        AnimDir(dir);
+                       
+                        transform.Translate(dir.normalized * 30 * Time.fixedDeltaTime);
                     }
                     else
                     {
                         state = RushMonsterState.Idle;
                         GetComponent<Collider2D>().isTrigger = false;
-                        monsterAnimator.speed = 1;
+                       
                     }
 
             }
@@ -61,8 +63,9 @@ public class RushMonster : Monster
 
                     if (Vector2.Distance(playerTransform.position, transform.position) > 10f)
                     {
-                       dir = playerTransform.position - new Vector3(transform.position.x, transform.position.y , 0);
-                        transform.Translate(dir * velocity * Time.deltaTime);
+                       dir = playerTransform.position - transform.position;
+                        AnimDir(dir);
+                        transform.Translate(dir.normalized * velocity * Time.fixedDeltaTime);
 
 
 
@@ -73,7 +76,7 @@ public class RushMonster : Monster
                         aimPos = playerTransform.position;
                         state = RushMonsterState.Rush;
                         GetComponent<Collider2D>().isTrigger = true;
-                        monsterAnimator.speed = 2;
+                     
 
                     }
 
@@ -86,12 +89,15 @@ public class RushMonster : Monster
                         monsterAnimator.SetBool("isMove", false);
 
                     }
-                    dir = playerTransform.position - new Vector3(transform.position.x, transform.position.y, 0);
+                    dir = playerTransform.position - transform.position;
+                    AnimDir(dir);
                     if (!is_wait)
                     {
                         is_wait = true;
                         StartCoroutine(WaitRoutin());
                     }
+
+                    
 
             }
             break;
@@ -99,7 +105,7 @@ public class RushMonster : Monster
 
         }
 
-        AnimDir(dir);
+      
 
     }
 
@@ -119,5 +125,6 @@ public class RushMonster : Monster
         state = RushMonsterState.Trace;
 
     }
+
 
 }

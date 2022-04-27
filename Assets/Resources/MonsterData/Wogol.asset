@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Wogol
   m_EditorClassIdentifier: 
   monsterName: Wogol
-  hp: 100
+  hp: 10
   damage: 1
-  velocity: 3
+  velocity: 1
   image: {fileID: 21300000, guid: d71c302aa70bbce4396ac82c4ed4bbc4, type: 3}
-  count: 50
-  maxCount: 50
+  count: 100
+  maxCount: 100
   monsterObj: {fileID: 7112120561755470766, guid: d91976c011a95dd4e8cf2efb6b60cb0f,
     type: 3}
