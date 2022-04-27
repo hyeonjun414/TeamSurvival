@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, IAttackable
                 RewardManager.Instance.ExcuteReward(RewardType.Skill);
             }
             print(curExp / maxExp);
-            UIManager.Instance.curExpBar.fillAmount = curExp / maxExp;
+           UIManager.Instance.curExpBar.fillAmount = curExp / maxExp;
         }
     }
     public int ProjLevel
