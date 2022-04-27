@@ -137,8 +137,6 @@ MonoBehaviour:
   projName: Spark
   rb: {fileID: 0}
   damage: 0
-  isExplosion: 0
-  explosionRange: 0
   effect: {fileID: 6226699022801534465, guid: fa559ece23da39646b3465cd05139b5f, type: 3}
 --- !u!95 &7001007910899052660
 Animator:

@@ -137,8 +137,6 @@ MonoBehaviour:
   projName: Pulse
   rb: {fileID: 0}
   damage: 0
-  isExplosion: 0
-  explosionRange: 0
   effect: {fileID: 7950207701468523360, guid: 2681da3cd0616514db11ae04c55341a4, type: 3}
 --- !u!95 &7759751659055072734
 Animator:

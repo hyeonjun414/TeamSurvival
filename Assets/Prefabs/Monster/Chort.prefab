@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5727597866461616016}
   - component: {fileID: 4139540686422270106}
   - component: {fileID: 6390967239083232262}
-  - component: {fileID: 2735389131657546125}
+  - component: {fileID: 8483300968421391957}
   m_Layer: 8
   m_Name: Chort
   m_TagString: Enemy
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.24}
+    oldSize: {x: 1, y: 1.5}
     newSize: {x: 1, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,7 +151,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2735389131657546125
+--- !u!114 &8483300968421391957
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,11 +160,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4511004867780508540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1904dc6db6d044b84c5a1615f2d8a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  velocity: 0
+  hp: 100
+  velocity: 4
   dmg: 0
   monsterName: 
   monsterData: {fileID: 11400000, guid: 87ff2f12bb58d8a46b1d9c121ee65ef3, type: 2}
