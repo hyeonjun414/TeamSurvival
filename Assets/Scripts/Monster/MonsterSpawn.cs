@@ -5,11 +5,17 @@ using UnityEngine.Tilemaps;
 public class MonsterSpawn : MonoBehaviour
 {
 
-    [SerializeField]
-    List<GameObjectBundle> objBundles;
+    
+
+
+
+    List<GameObjectBundle> objBundles = new List<GameObjectBundle>();
 
     [SerializeField]
     List<Transform> spawnTransform;
+
+    [SerializeField]
+    List<MonsterData> monsterDataList;
 
 
     private void Start()
@@ -21,6 +27,18 @@ public class MonsterSpawn : MonoBehaviour
     }
     public void Init()
     {
+        foreach(var md in monsterDataList)
+        {
+            GameObjectBundle bundle = new GameObjectBundle();
+            bundle.key = md.monsterName;
+            bundle.prefabObj = md.monsterObj;
+            bundle.count = md.count;
+            bundle.maxCount = md.maxCount;
+            objBundles.Add(bundle);
+        }
+       
+
+
         for(int i = 0; i < objBundles.Count; i++)
         {
             int count =  objBundles[i].count;
@@ -80,6 +98,7 @@ public class MonsterSpawn : MonoBehaviour
                 GameObject monster = ObjectPooling.Instance.ObjectUse(key);
                 monster.transform.position =
                     new Vector2( spawnTransform[randomIndex].position.x + randomPosX , spawnTransform[randomIndex].position.y + randomPosY) ;
+                monster.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
 
             }
 
@@ -93,9 +112,12 @@ public class MonsterSpawn : MonoBehaviour
         while(true){
 
 
+          int index = (int)Random.Range(0, objBundles.Count-1);
 
-            Spawn("Chort", 10);
-            Spawn("Img", 20);
+
+
+          Spawn(objBundles[index].key, 30);
+           
 
             yield return second;
 
