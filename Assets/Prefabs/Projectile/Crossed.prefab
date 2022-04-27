@@ -140,6 +140,8 @@ MonoBehaviour:
   projName: Crossed
   rb: {fileID: 0}
   damage: 0
+  isExplosion: 0
+  explosionRange: 0
   effect: {fileID: 2079886819156587326, guid: 3b80a6c09f5488a429a9a9e44892ff41, type: 3}
 --- !u!70 &1989019190600755330
 CapsuleCollider2D:
