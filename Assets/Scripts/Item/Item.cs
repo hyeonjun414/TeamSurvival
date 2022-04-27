@@ -15,11 +15,15 @@ public class Item : MonoBehaviour
         } 
         else
         {
-            // 더 획득할 수 없음.
+            Debug.Log("최대 개수 입니다.");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Collect();
+        if(other.tag == "Player")
+        {
+            Collect();
+        }
+        
     }
 }

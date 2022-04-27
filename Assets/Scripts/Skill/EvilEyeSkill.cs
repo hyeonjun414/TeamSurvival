@@ -28,7 +28,7 @@ public class EvilEyeSkill : Skill
         print("이블아이 스킬 작동");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy"));
         
-        if (hits.Length >= 0)
+        if (hits.Length > 0)
         {
             for(int i = 0; i < count; i++)
             {

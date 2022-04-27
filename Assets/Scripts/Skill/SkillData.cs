@@ -6,7 +6,9 @@ public enum SkillType
 {
     AreaAttack,
     Fireball,
-    Laser
+    Laser,
+    RotateAround,
+    ChainAttack,
 }
 
 [CreateAssetMenu(fileName = "Skill Data", menuName = "Data/Skill Data")]

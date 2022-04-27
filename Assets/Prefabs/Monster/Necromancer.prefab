@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4417669363222266024}
   - component: {fileID: 2284029747695231871}
   - component: {fileID: 6895089275149980296}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Necromancer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.25}
+    oldSize: {x: 0.16, y: 0.2}
     newSize: {x: 0.16, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

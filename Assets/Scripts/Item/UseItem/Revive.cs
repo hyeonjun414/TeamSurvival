@@ -6,7 +6,8 @@ using UnityEngine;
 public class Revive : ItemData
 {
     private void Start() {
-        code = 2;    
+        code = 2;
+  
     }
     public override void Use()
     {
