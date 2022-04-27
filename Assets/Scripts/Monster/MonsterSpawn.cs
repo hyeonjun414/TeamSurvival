@@ -17,14 +17,17 @@ public class MonsterSpawn : MonoBehaviour
     [SerializeField]
     List<MonsterData> monsterDataList;
 
+    public int monsterMax = 500;
 
     private void Start()
     {
 
         Init();
         StartCoroutine(SpawnRoutin());
+        Debug.Log("시작");
 
     }
+
     public void Init()
     {
         foreach(var md in monsterDataList)
@@ -62,28 +65,6 @@ public class MonsterSpawn : MonoBehaviour
 
        var objs =  ObjectPooling.Instance.objectsDictionary[key];
 
-       ObjectPoolConfig[] objCon =  FindObjectsOfType<ObjectPoolConfig>();
-        int totalCount = 0;
-        for(int i = 0; i < objCon.Length; i++)
-        {
-            if(key == objCon[i].key)
-            {
-                totalCount++;
-
-            }
-
-
-        }
-
-
-        
-
-        if(totalCount > go.maxCount)
-        {
-
-
-            return;
-        }
 
 
 
@@ -96,9 +77,15 @@ public class MonsterSpawn : MonoBehaviour
                 int randomPosX = Random.Range(0, 3);
                 int randomPosY = Random.Range(0, 3);
                 GameObject monster = ObjectPooling.Instance.ObjectUse(key);
+                if(monster == null) {
+                    return;
+                }
+
+
                 monster.transform.position =
                     new Vector2( spawnTransform[randomIndex].position.x + randomPosX , spawnTransform[randomIndex].position.y + randomPosY) ;
                 monster.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+
 
             }
 
@@ -108,16 +95,16 @@ public class MonsterSpawn : MonoBehaviour
 
     IEnumerator SpawnRoutin()
     {
-        WaitForSeconds second = new WaitForSeconds(3f);
+        WaitForSeconds second = new WaitForSeconds(2f);
         while(true){
 
+            if (ObjectPooling.Instance.monstorCount < monsterMax)
+            {
 
-          int index = (int)Random.Range(0, objBundles.Count-1);
 
-
-
-          Spawn(objBundles[index].key, objBundles[index].count);
-           
+                int index = (int)Random.Range(0, objBundles.Count);
+                Spawn(objBundles[index].key, 30);
+            }
 
             yield return second;
 

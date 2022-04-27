@@ -6,9 +6,8 @@ public class ObjectPooling : SingletonManager<ObjectPooling>
 {
 
     public Dictionary<string , Stack<GameObject>> objectsDictionary= new Dictionary<string, Stack<GameObject>>();
-    
 
-
+    public int monstorCount = 0;
 
     public void AddObjects(string key , GameObject gameobj , int count){
 
@@ -57,22 +56,17 @@ public class ObjectPooling : SingletonManager<ObjectPooling>
 
 
     public GameObject ObjectUse(string key){
-
-       if(!objectsDictionary.ContainsKey(key)){
+        
+       if(!objectsDictionary.ContainsKey(key) || objectsDictionary[key].Count <= 0)
+        {
 
           return null;
        }
 
        
-      GameObject useObject = objectsDictionary[key].Pop();
-
-      if(objectsDictionary[key].Count < 2){
-         AddObjects(key ,  useObject , 2);        
-      }
-
-
-      useObject.SetActive(true);
-      return useObject;
+        GameObject useObject = objectsDictionary[key].Pop();
+        useObject.SetActive(true);
+        return useObject;
        
     }
 
@@ -85,7 +79,8 @@ public class ObjectPooling : SingletonManager<ObjectPooling>
            }
 
 
-           gameobj.SetActive(false);
+           
+           gameobj.SetActive(false);           
            objectsDictionary[key].Push(gameobj);
            
     }

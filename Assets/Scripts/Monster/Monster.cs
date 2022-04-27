@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour , IDamageable
 {
+    public float time = 0.1f;
     public float hp ;
     public float velocity ;
     public float dmg;
@@ -16,11 +17,13 @@ public class Monster : MonoBehaviour , IDamageable
     protected SpriteRenderer spriteRenderer;
     protected Rigidbody2D rb;
 
+
     private Color attackedColor;
     private Color noneAttackedColor;
     private int attackedCount = 0;
     private bool is_Attacked = false;
-
+    private Coroutine moveroutin;
+    
 
     private void Awake()
     {
@@ -28,7 +31,7 @@ public class Monster : MonoBehaviour , IDamageable
         monsterAnimator = GetComponent<Animator>();
         playerTransform = FindObjectOfType<Player>().transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+   
         if(monsterData != null)
         {
             hp = monsterData.hp;
@@ -45,23 +48,25 @@ public class Monster : MonoBehaviour , IDamageable
         attackedColor = new Color(255, 0, 0);
         noneAttackedColor = new Color(255, 255, 255);
         spriteRenderer.color = noneAttackedColor;
-        //monsterAnimator.enabled = false;
-        //spriteRenderer.enabled = false;
-       
+
+      
     }
-    
+
 
     private void FixedUpdate()
     {
-        //if (!GameManager.Instance.isPlay) return;
-        Mover();
+        
+            Mover();
+        
 
-        if(!is_Attacked && attackedCount > 0)
+        if (!is_Attacked && attackedCount > 0)
         {
             attackedCount--;
 
             StartCoroutine(AttackedRoutin());
         }
+
+        
 
     }
 
@@ -69,10 +74,9 @@ public class Monster : MonoBehaviour , IDamageable
     {
 
         Vector2 dir = playerTransform.position - gameObject.transform.position;
-        //transform.Translate(dir.normalized * velocity * Time.deltaTime);
-        //transform.position += (Vector3)(dir.normalized * velocity * Time.deltaTime);
-        rb.position += (dir.normalized * velocity * Time.deltaTime);
-        if (Mathf.Sqrt(dir.x * dir.x + dir.y * dir.y) > 0.5f)
+       
+        
+        if (Vector3.Distance(playerTransform.position , gameObject.transform.position) > 0.5f)
         {
             if (!monsterAnimator.GetBool("isMove"))
             {
@@ -80,8 +84,9 @@ public class Monster : MonoBehaviour , IDamageable
 
             }
 
-            //transform.position += (Vector3)(dir.normalized * velocity * Time.deltaTime);
-
+            transform.Translate(dir.normalized * velocity * Time.fixedDeltaTime);
+           
+           
         }
         else
         {
@@ -91,6 +96,7 @@ public class Monster : MonoBehaviour , IDamageable
                 monsterAnimator.SetBool("isMove", false);
 
             }
+            
         }
 
 
@@ -116,11 +122,7 @@ public class Monster : MonoBehaviour , IDamageable
 
             if(config != null)
             {
-
-                string key = config.key;
-                ObjectPooling.Instance.ObjectReturn(key, this.gameObject);
-
-
+                config.Dead();
                 //// 아이템 
             }
 
@@ -175,5 +177,7 @@ public class Monster : MonoBehaviour , IDamageable
 
         is_Attacked = false;
     }
+
+
 
 }
