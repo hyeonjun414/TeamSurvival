@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 public class MonsterSpawn : MonoBehaviour
 {
+    int count = 5;
 
-    
-
+    float timedurtion =  0;
 
 
     List<GameObjectBundle> objBundles = new List<GameObjectBundle>();
@@ -19,14 +19,25 @@ public class MonsterSpawn : MonoBehaviour
 
     public int monsterMax = 500;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 40;
+
+    }
+
     private void Start()
     {
 
         Init();
         StartCoroutine(SpawnRoutin());
+        StartCoroutine(TimeRoutin());
         Debug.Log("시작");
 
     }
+
+    
+
+
 
     public void Init()
     {
@@ -103,7 +114,7 @@ public class MonsterSpawn : MonoBehaviour
 
 
                 int index = (int)Random.Range(0, objBundles.Count);
-                Spawn(objBundles[index].key, 30);
+                Spawn(objBundles[index].key, count);
             }
 
             yield return second;
@@ -113,7 +124,24 @@ public class MonsterSpawn : MonoBehaviour
 
     }
 
+    IEnumerator TimeRoutin()
+    {
 
+        float time = 0;
+
+        while (true)
+        {
+            if(time >= timedurtion)
+            {
+                count += 5;
+                timedurtion += 30f;
+            }
+            
+            time += Time.deltaTime;
+
+            yield return null;
+        }
+    }
 
 
 }

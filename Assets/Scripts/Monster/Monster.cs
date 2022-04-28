@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour , IDamageable
+public class Monster : MonoBehaviour , IDamageable , IAttackable
 {
     public float time = 0.1f;
     public float hp ;
@@ -14,60 +14,48 @@ public class Monster : MonoBehaviour , IDamageable
 
     protected Transform playerTransform;
     protected Animator monsterAnimator;
+    protected Player player;
     protected SpriteRenderer spriteRenderer;
     protected Rigidbody2D rb;
 
 
-    private Color attackedColor;
-    private Color noneAttackedColor;
-    private int attackedCount = 0;
-    private bool is_Attacked = false;
-    private Coroutine moveroutin;
-    
+    private AttackedSprite attackedSprite;
+
+    private bool is_die = false;
 
     private void Awake()
     {
 
         monsterAnimator = GetComponent<Animator>();
-        playerTransform = FindObjectOfType<Player>().transform;
+        player = GameManager.Instance.player;
+        playerTransform = player.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
    
-        if(monsterData != null)
+
+
+    }
+
+    private void OnEnable()
+    {
+        if (monsterData != null)
         {
             hp = monsterData.hp;
             dmg = monsterData.hp;
             velocity = monsterData.velocity;
             monsterName = monsterData.monsterName;
         }
-     
-
     }
 
-    private void Start()
-    {
-        attackedColor = new Color(255, 0, 0);
-        noneAttackedColor = new Color(255, 255, 255);
-        spriteRenderer.color = noneAttackedColor;
-
-      
-    }
 
 
     private void FixedUpdate()
     {
-        
-            Mover();
-        
-
-        if (!is_Attacked && attackedCount > 0)
+        if (!is_die)
         {
-            attackedCount--;
-
-            StartCoroutine(AttackedRoutin());
+            Mover();
         }
 
-        
-
+       
     }
 
     virtual public void Mover()
@@ -90,7 +78,7 @@ public class Monster : MonoBehaviour , IDamageable
         }
         else
         {
-
+            Attack();
             if (monsterAnimator.GetBool("isMove"))
             {
                 monsterAnimator.SetBool("isMove", false);
@@ -118,14 +106,8 @@ public class Monster : MonoBehaviour , IDamageable
         if(hp <= 0)
         {
 
-            ObjectPoolConfig config = GetComponent<ObjectPoolConfig>();
-
-            if(config != null)
-            {
-                config.Dead();
-                //// 아이템 
-            }
-
+            StartCoroutine(SpriteFade());
+           
         }
 
 
@@ -150,34 +132,61 @@ public class Monster : MonoBehaviour , IDamageable
 
 
    public void Hit(int damage) {
-        Attacked((float)damage);
-        attackedCount++;
+
+
+
+        if (attackedSprite == null)
+        {
+            gameObject.AddComponent<AttackedSprite>();
+            attackedSprite = GetComponent<AttackedSprite>();
+            attackedSprite.duration = 0.1f;
+            attackedSprite.spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        attackedSprite.Attacked(() =>
+        {
+            Attacked((float)damage);
+        });
+       
+       
     }
 
 
-    IEnumerator AttackedRoutin()
+
+    public void Attack()
     {
-        float time = 0;  
-        spriteRenderer.color = attackedColor;
-
-        is_Attacked = true;
-        while (time < 0.5f )
+        if(Vector2.Distance(playerTransform.position , transform.position) < 0.5f)
         {
-            time += Time.deltaTime;
+            player.Hit((int)dmg);
+        }
 
-            
-            if(time > 0.3f)
-            {
 
-                spriteRenderer.color = noneAttackedColor;
+    }
 
-            }                         
+    IEnumerator SpriteFade()
+    {
+        is_die = true;
+        Color color = spriteRenderer.color;
+        spriteRenderer.color = new Color(255, 255, 255);
+        while (color.a > 0) 
+        {
+           
+            color.a -= 0.01f;
+            spriteRenderer.color = color;
+
             yield return null;
         }
 
-        is_Attacked = false;
+        ObjectPoolConfig config = GetComponent<ObjectPoolConfig>();
+        if (config != null)
+        {
+            is_die = false;
+            color.a = 1;
+            spriteRenderer.color = color;
+            config.Dead();
+            // QuestManager.Instance.KillCheck(monsterName);
+            //// 아이템 
+        }
     }
-
-
 
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chort
   m_EditorClassIdentifier: 
   monsterName: Chort
-  hp: 50
+  hp: 5
   damage: 2
   velocity: 2
   image: {fileID: 21300000, guid: 68d912a6b6d86ed4d89e57176545920a, type: 3}

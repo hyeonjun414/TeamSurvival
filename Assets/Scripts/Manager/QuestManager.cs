@@ -66,7 +66,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void KillCheck(string targetname){  // TODO : 몬스터와 연결
+    public void KillCheck(string targetname){  // TODO : 몬스터와 연결
         for (int i = 0; i < 3; i++)
         {
             if (curQuests[i].target.name == targetname)

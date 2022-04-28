@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Necromancer
   m_EditorClassIdentifier: 
   monsterName: Necromencer
-  hp: 4
+  hp: 1
   damage: 4
   velocity: 2
   image: {fileID: 21300000, guid: 780ef88faea904744bc4ba740c7be74d, type: 3}

@@ -41,13 +41,15 @@ public class RushMonster : Monster
                         dir = aimPos - transform.position;
                         AnimDir(dir);
                        
-                        transform.Translate(dir.normalized * 30 * Time.fixedDeltaTime);
+                        transform.Translate(dir.normalized * 20 * Time.fixedDeltaTime);
                     }
                     else
                     {
                         state = RushMonsterState.Idle;
                         GetComponent<Collider2D>().isTrigger = false;
-                       
+                        Attack();
+
+
                     }
 
             }
@@ -61,7 +63,7 @@ public class RushMonster : Monster
 
                     }
 
-                    if (Vector2.Distance(playerTransform.position, transform.position) > 10f)
+                    if (Vector2.Distance(playerTransform.position, transform.position) > 20f)
                     {
                        dir = playerTransform.position - transform.position;
                         AnimDir(dir);
