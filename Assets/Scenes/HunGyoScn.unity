@@ -834,7 +834,6 @@ GameObject:
   - component: {fileID: 159876885}
   - component: {fileID: 159876884}
   - component: {fileID: 159876883}
-  - component: {fileID: 159876882}
   m_Layer: 8
   m_Name: Ogre (6)
   m_TagString: Enemy
@@ -842,21 +841,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &159876882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159876881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &159876883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52307,7 +52291,6 @@ GameObject:
   - component: {fileID: 419500671}
   - component: {fileID: 419500670}
   - component: {fileID: 419500669}
-  - component: {fileID: 419500668}
   m_Layer: 8
   m_Name: Ogre (12)
   m_TagString: Enemy
@@ -52315,21 +52298,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &419500668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419500667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &419500669
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53596,7 +53564,6 @@ GameObject:
   - component: {fileID: 747133995}
   - component: {fileID: 747133994}
   - component: {fileID: 747133993}
-  - component: {fileID: 747133992}
   m_Layer: 8
   m_Name: Ogre (15)
   m_TagString: Enemy
@@ -53604,21 +53571,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &747133992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747133991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &747133993
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -53983,6 +53935,7 @@ MonoBehaviour:
   curExpBar: {fileID: 804524115}
   curDelayBar: {fileID: 1920691182}
   dlgReward: {fileID: 1601669979}
+  dlgSkillSlot: {fileID: 878124776}
 --- !u!114 &778195652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54168,7 +54121,6 @@ GameObject:
   - component: {fileID: 811507511}
   - component: {fileID: 811507510}
   - component: {fileID: 811507509}
-  - component: {fileID: 811507508}
   m_Layer: 8
   m_Name: Ogre (16)
   m_TagString: Enemy
@@ -54176,21 +54128,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &811507508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811507507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &811507509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54424,7 +54361,6 @@ GameObject:
   - component: {fileID: 816487552}
   - component: {fileID: 816487551}
   - component: {fileID: 816487550}
-  - component: {fileID: 816487549}
   m_Layer: 8
   m_Name: Ogre (9)
   m_TagString: Enemy
@@ -54432,21 +54368,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &816487549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816487548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &816487550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54951,7 +54872,6 @@ GameObject:
   - component: {fileID: 897690873}
   - component: {fileID: 897690872}
   - component: {fileID: 897690871}
-  - component: {fileID: 897690870}
   m_Layer: 8
   m_Name: Ogre (1)
   m_TagString: Enemy
@@ -54959,21 +54879,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &897690870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897690869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &897690871
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55418,7 +55323,6 @@ GameObject:
   - component: {fileID: 993312726}
   - component: {fileID: 993312725}
   - component: {fileID: 993312724}
-  - component: {fileID: 993312723}
   m_Layer: 8
   m_Name: Ogre (8)
   m_TagString: Enemy
@@ -55426,21 +55330,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &993312723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993312722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &993312724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59919,7 +59808,6 @@ GameObject:
   - component: {fileID: 1077288661}
   - component: {fileID: 1077288660}
   - component: {fileID: 1077288659}
-  - component: {fileID: 1077288658}
   m_Layer: 8
   m_Name: Ogre (13)
   m_TagString: Enemy
@@ -59927,21 +59815,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1077288658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077288657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1077288659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60355,7 +60228,6 @@ GameObject:
   - component: {fileID: 1122331481}
   - component: {fileID: 1122331480}
   - component: {fileID: 1122331479}
-  - component: {fileID: 1122331478}
   m_Layer: 8
   m_Name: Ogre (10)
   m_TagString: Enemy
@@ -60363,21 +60235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1122331478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1122331477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1122331479
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60880,7 +60737,6 @@ GameObject:
   - component: {fileID: 1218039247}
   - component: {fileID: 1218039246}
   - component: {fileID: 1218039245}
-  - component: {fileID: 1218039244}
   m_Layer: 8
   m_Name: Ogre (14)
   m_TagString: Enemy
@@ -60888,21 +60744,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1218039244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218039243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1218039245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61212,7 +61053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  ShotPower: 300
+  ShotPower: 5
   arrowDamage: 5
   damage: 5
   maxHp: 100
@@ -61470,7 +61311,6 @@ GameObject:
   - component: {fileID: 1287149619}
   - component: {fileID: 1287149618}
   - component: {fileID: 1287149617}
-  - component: {fileID: 1287149616}
   m_Layer: 8
   m_Name: Ogre (3)
   m_TagString: Enemy
@@ -61478,21 +61318,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1287149616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287149615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1287149617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61779,7 +61604,6 @@ GameObject:
   - component: {fileID: 1335158158}
   - component: {fileID: 1335158157}
   - component: {fileID: 1335158156}
-  - component: {fileID: 1335158155}
   m_Layer: 8
   m_Name: Ogre (11)
   m_TagString: Enemy
@@ -61787,21 +61611,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1335158155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335158154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1335158156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62255,7 +62064,6 @@ GameObject:
   - component: {fileID: 1404914036}
   - component: {fileID: 1404914035}
   - component: {fileID: 1404914034}
-  - component: {fileID: 1404914033}
   m_Layer: 8
   m_Name: Ogre (7)
   m_TagString: Enemy
@@ -62263,21 +62071,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1404914033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404914032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1404914034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62545,7 +62338,6 @@ GameObject:
   - component: {fileID: 1501526185}
   - component: {fileID: 1501526184}
   - component: {fileID: 1501526183}
-  - component: {fileID: 1501526182}
   m_Layer: 8
   m_Name: Ogre (5)
   m_TagString: Enemy
@@ -62553,21 +62345,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1501526182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501526181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1501526183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -62761,7 +62538,6 @@ GameObject:
   - component: {fileID: 1542345742}
   - component: {fileID: 1542345741}
   - component: {fileID: 1542345740}
-  - component: {fileID: 1542345739}
   m_Layer: 8
   m_Name: Ogre (4)
   m_TagString: Enemy
@@ -62769,21 +62545,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1542345739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542345738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1542345740
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65099,7 +64860,6 @@ GameObject:
   - component: {fileID: 1941865926}
   - component: {fileID: 1941865925}
   - component: {fileID: 1941865924}
-  - component: {fileID: 1941865923}
   m_Layer: 8
   m_Name: Ogre (2)
   m_TagString: Enemy
@@ -65107,21 +64867,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1941865923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941865922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!61 &1941865924
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65878,7 +65623,6 @@ GameObject:
   - component: {fileID: 2123625227}
   - component: {fileID: 2123625226}
   - component: {fileID: 2123625225}
-  - component: {fileID: 2123625228}
   m_Layer: 8
   m_Name: Ogre
   m_TagString: Enemy
@@ -65976,21 +65720,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2123625228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123625224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 50
-  velocity: 0
-  dmg: 0
 --- !u!1001 &2828423836038571846
 PrefabInstance:
   m_ObjectHideFlags: 0

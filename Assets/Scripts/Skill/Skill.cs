@@ -9,6 +9,9 @@ public abstract class Skill : MonoBehaviour,IAttackable
     public float cooldown;
     public int damage;
 
+    public int level = 1;
+    public int maxLevel = 6;
+
     public SkillData data;
 
     protected virtual void Start()
@@ -27,5 +30,6 @@ public abstract class Skill : MonoBehaviour,IAttackable
     }
 
     public abstract void Attack();
+    public abstract void LevelUp();
     public abstract void SetUp();
 }

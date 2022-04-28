@@ -57,4 +57,9 @@ public class FireballSkill : Skill
         //transform.localScale = new Vector3(range * 2, range * 2, 0);
     }
 
+    public override void LevelUp()
+    {
+        // TODO
+        level++;
+    }
 }

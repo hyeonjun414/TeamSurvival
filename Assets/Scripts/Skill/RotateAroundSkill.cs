@@ -8,12 +8,8 @@ public class RotateAroundSkill : Skill
     public float range;
     public float speed;
     public float duration;
-    public int count;
+    public int count;               // 개수
 
-    // void Update()
-    // {
-           
-    // }
 
     public override void Attack()
     {
@@ -40,5 +36,11 @@ public class RotateAroundSkill : Skill
 
     public override void SetUp()
     {
+    }
+
+    public override void LevelUp()
+    {
+        level++;
+        count++;
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2798806003799046439
+--- !u!1 &5842411000271091755
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4253107889744935953}
-  - component: {fileID: 7215304821610348423}
+  - component: {fileID: 5842411000271091754}
+  - component: {fileID: 14601564599997242}
   m_Layer: 0
-  m_Name: RotateAroundSkill
+  m_Name: BladeSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4253107889744935953
+--- !u!4 &5842411000271091754
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2798806003799046439}
+  m_GameObject: {fileID: 5842411000271091755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,28 +31,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7215304821610348423
+--- !u!114 &14601564599997242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2798806003799046439}
+  m_GameObject: {fileID: 5842411000271091755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff6e0fdd6412474da45c626ad7095ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 201516fb9ec87644fb0deffd9fb14515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  curCooldown: 0
-  cooldown: 7
-  damage: 5
+  curCooldown: 8
+  cooldown: 12
+  damage: 1
   level: 1
   maxLevel: 6
-  data: {fileID: 11400000, guid: e06535779fe3495468b70134f0c609f6, type: 2}
-  prfSpawn: {fileID: 8802201878295962136, guid: 3d8b436c06fa52149b7ee3bd490065db,
+  data: {fileID: 11400000, guid: 90bd22401ed9ac1489165fb07cd75c95, type: 2}
+  prfBlade: {fileID: 2933118763680676914, guid: 83936084ec346494e9cc9d277fe5fcd9,
     type: 3}
-  range: 5
-  speed: 120
-  duration: 4
-  count: 1
+  duration: 8
