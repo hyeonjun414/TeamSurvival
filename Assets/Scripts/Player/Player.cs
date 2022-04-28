@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IAttackable
+public class Player : MonoBehaviour, IAttackable , IDamageable
 {
     public float moveSpeed = 1.0f;
     public float ShotPower = 100f;
@@ -25,6 +25,9 @@ public class Player : MonoBehaviour, IAttackable
     public float projScale = 1f;
     public float projSpeed = 1f;
     public float attackSpeed = 1f;
+
+
+    private AttackedSprite attackedSprite;
 
     public float EXP
     {
@@ -146,6 +149,42 @@ public class Player : MonoBehaviour, IAttackable
         }
         
     }
+
+    public void Hit(int damage)
+    {
+
+        if(attackedSprite == null)
+        {
+            gameObject.AddComponent<AttackedSprite>();
+            attackedSprite = GetComponent<AttackedSprite>();
+            attackedSprite.duration = 1f;
+            attackedSprite.spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        attackedSprite.Attacked(() =>
+        {
+
+            if (curHp - damage > 0)
+            {
+
+                curHp -= damage;
+
+            }
+            else
+            {
+                curHp = 0;
+            }
+
+            if (curHp <= 0)
+            {
+                GameManager.Instance.PauseGame();
+                //이벤트 처리
+            }
+        });
+
+
+    }
+
 
     public void Attack()
     {
