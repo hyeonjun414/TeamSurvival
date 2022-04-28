@@ -7,6 +7,8 @@ public class SkillUnit : MonoBehaviour
 {
     public Image icon;
     public Skill curSkill;
+    public Text curSkillLevel;
+    public GameObject skillLevelSlot;
     public Image coolTimeBar;
 
     private void Update()
@@ -22,6 +24,8 @@ public class SkillUnit : MonoBehaviour
         curSkill = skill;
 
         icon.sprite = skill.data.icon;
+        curSkillLevel.text = curSkill.level.ToString();
+        skillLevelSlot.SetActive(true);
         icon.enabled = true;
     }
     public void RemoveSkill()
@@ -29,6 +33,8 @@ public class SkillUnit : MonoBehaviour
         curSkill = null;
         coolTimeBar.fillAmount = 1;
         icon.sprite = null;
+        skillLevelSlot.SetActive(false);
+
         icon.enabled = false;
     }
 }

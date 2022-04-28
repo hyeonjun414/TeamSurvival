@@ -72,6 +72,7 @@ public class Blade : MonoBehaviour
                 {
                     IDamageable target = hit.transform.GetComponent<IDamageable>();
                     target?.Hit(damage);
+                    GameManager.Instance.CreateDamage(hit.transform.position, damage);
                 }
             }
 

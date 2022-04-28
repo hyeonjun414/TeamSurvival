@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4932ce1113a9528468a25fbaf719bf0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0.1
   hp: 50
   velocity: 1
   dmg: 0
@@ -160,7 +161,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b25aa438857d57648a4512092c5d7bf6, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

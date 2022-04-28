@@ -25,7 +25,6 @@ public class EvilEyeSkill : Skill
     }
     public override void Attack()
     {
-        print("이블아이 스킬 작동");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy"));
         
         if (hits.Length > 0)
@@ -36,8 +35,8 @@ public class EvilEyeSkill : Skill
                 IDamageable enemy = hit.gameObject.GetComponent<IDamageable>();
                 if (enemy != null)
                 {
-                    print("이블아이 스킬 공격 성공");
                     enemy.Hit(damage);
+                    GameManager.Instance.CreateDamage(hit.transform.position, damage);
                     LineEffect le = Instantiate(lineEffect, transform.position, Quaternion.identity);
                     le.startPos = transform.position;
                     le.endPos = hit.transform.position;
@@ -49,12 +48,13 @@ public class EvilEyeSkill : Skill
 
     public override void SetUp()
     {
-        //transform.localScale = new Vector3(range * 2, range * 2, 0);
     }
 
     public override void LevelUp()
     {
         // TODO
         level++;
+        damage += 3;
+        count += 2;
     }
 }

@@ -28,6 +28,7 @@ public class LineEffect : Effect
             DestroyMyself();
         }
         Color curColor = new Color(color.r, color.g, color.b, 1 - curTime / duration);
-        lr.SetColors(curColor, curColor);
+        lr.startColor = curColor;
+        lr.endColor = curColor;
     }
 }

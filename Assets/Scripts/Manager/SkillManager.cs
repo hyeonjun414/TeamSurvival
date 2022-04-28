@@ -16,6 +16,15 @@ public class SkillManager : SingletonManager<SkillManager>
 
     public bool AddSkill(SkillData addData)
     {
+        foreach (Skill skill in skillList)
+        {
+            if (skill.data.skillType == addData.skillType)
+            {   // 이미 있는 경우,, 
+                skill.LevelUp();
+                skillUI.UpdateUI();
+                return true;
+            }
+        }
         print(addData.name);
         if (skillList.Count == maxCount)
         {   // 스킬 더 이상 추가 불가한 상태
@@ -23,14 +32,7 @@ public class SkillManager : SingletonManager<SkillManager>
         }
         else{   // 추가 성공
 
-            foreach(Skill skill in skillList)
-            {
-                if (skill.data.skillType == addData.skillType)
-                {   // 이미 있는 경우,, 
-                    skill.LevelUp();
-                    return true;
-                }
-            }
+
 
             // 없는 경우,, 새로 추가
             Player player = GameManager.Instance.player;

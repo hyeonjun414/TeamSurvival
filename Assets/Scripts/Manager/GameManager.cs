@@ -7,34 +7,40 @@ public class GameManager : SingletonManager<GameManager>
 {
     public Player player;
 
-    public Canvas canvas;
-    public GameObject dialog;
-    public Text nameText;
-    public Text discText;
-
-    public DamageText dt;
-
     public GameObject[] projectiles;
 
     public bool isPlay;
+    public float playTime;
 
-    
-    public void SetActiveDialog(bool Active)
+    public UIManager uiManager;
+    public Canvas worldCanvas;
+    public FloatingText floatText;
+    private void Start()
     {
-        dialog.SetActive(Active);
+        Application.targetFrameRate = 60;
+        ObjectPooling.Instance.AddObjects(floatText.key, floatText.gameObject, 200);
     }
-    public void SetDialogContent(string name, string disc)
+    private void Update()
     {
-        nameText.text = name;
-        discText.text = disc;
+        if(isPlay)
+            playTime += Time.deltaTime;
+
     }
+    private void FixedUpdate()
+    {
+        string str = string.Format("{0:D2} : {1:D2}", (int)playTime / 60, (int)playTime % 60);
+        uiManager.curTime.text = str;//((int)playTime).ToString();
+    }
+
     public void CreateDamage(Vector3 pos, int damage)
     {
-        //Vector3 initPos = Camera.main.WorldToScreenPoint(pos);
-        DamageText temp = Instantiate(dt, pos, Quaternion.identity, canvas.transform);
-        temp.damageText.text = damage.ToString();
+        GameObject obj = ObjectPooling.Instance.ObjectUse(floatText.key);
+        obj.transform.position = pos;
+        FloatingText txt = obj.GetComponent<FloatingText>();
+        txt.damageText.text = damage.ToString();
+        obj.transform.SetParent(worldCanvas.gameObject.transform);
     }
-    
+
     public void PlayGame()
     {
         isPlay = true;

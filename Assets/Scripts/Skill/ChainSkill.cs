@@ -52,6 +52,7 @@ public class ChainSkill : Skill
                 if (null != enemy)
                 {
                     enemy.Hit(damage);
+                    GameManager.Instance.CreateDamage(hits[targetIndex].transform.position, damage);
                 }
 
                 if (i % 2 == 0)

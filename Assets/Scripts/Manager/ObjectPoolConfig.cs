@@ -10,10 +10,12 @@ public class ObjectPoolConfig : MonoBehaviour
 
     private void OnEnable()
     {
+        //print("몬스터 생성");
         ObjectPooling.Instance.monstorCount++;
     }
     private void OnDisable()
     {
+        //print("몬스터 제거");
         ObjectPooling.Instance.monstorCount--;
     }
 

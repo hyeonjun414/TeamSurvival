@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public int damage;
 
     public bool isExplosion = false;
-    public float explosionRange = 0f;
+    public float explosionRange = 2f;
 
     public Effect effect;
     private void Awake()
@@ -21,31 +21,6 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         Invoke("ReturnProj", duration);
     }
-/*    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.collider.tag == "Enemy" && !other.collider.isTrigger)
-        {
-            IDamageable enemy = other.collider.GetComponent<IDamageable>();
-            enemy?.Hit(damage);
-
-            if (effect != null)
-            {
-                
-                Effect obj = Instantiate(effect, other.contacts[0].point, Quaternion.identity);
-                obj.transform.localScale = transform.localScale;
-            }
-            ReturnProj();
-        }
-        else if (other.collider.tag == "Wall")
-        {
-            if (effect != null)
-            {
-                Effect obj = Instantiate(effect, other.contacts[0].point, Quaternion.identity);
-                obj.transform.localScale = transform.localScale;
-            }
-            ReturnProj();
-        }
-    }*/
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Enemy" && !other.isTrigger)
@@ -67,6 +42,7 @@ public class Projectile : MonoBehaviour
             else
             {
                 enemy?.Hit(damage);
+                GameManager.Instance.CreateDamage(other.transform.position, damage);
                 if (effect != null)
                 {
                     Effect obj = Instantiate(effect, other.transform.position, Quaternion.identity);
@@ -92,17 +68,16 @@ public class Projectile : MonoBehaviour
     {
         ObjectPooling.Instance.ObjectReturn(projName, gameObject);
     }
-    private void OnDisable()
+    private void OnEnable()
     {
         rb.velocity = Vector3.zero;
-        damage = 0;
         CancelInvoke("ReturnProj");
     }
 
     public void Explosion()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRange, LayerMask.GetMask("Enemy"));
-        if (hits.Length >= 0)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRange*transform.localScale.x, LayerMask.GetMask("Enemy"));
+        if (hits.Length > 0)
         {
             foreach (Collider2D hit in hits)
             {
@@ -110,6 +85,7 @@ public class Projectile : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.Hit(damage);
+                    GameManager.Instance.CreateDamage(hit.transform.position, damage);
                 }
             }
         }

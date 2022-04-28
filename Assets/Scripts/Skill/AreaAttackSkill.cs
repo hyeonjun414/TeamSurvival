@@ -13,7 +13,6 @@ public class AreaAttackSkill : Skill
     }
     public override void Attack()
     {
-        print("에이리어 스킬 작동");
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, range, LayerMask.GetMask("Enemy"));
         if(hits.Length >= 0)
         {
@@ -22,8 +21,8 @@ public class AreaAttackSkill : Skill
                 IDamageable enemy = hit.gameObject.GetComponent<IDamageable>();
                 if(enemy != null)
                 {
-                    print("에어리어 스킬 공격 성공");
                     enemy.Hit(damage);
+                    GameManager.Instance.CreateDamage(hit.transform.position, damage);
                     Instantiate(hitEffect, hit.transform.position, Quaternion.identity);
                 }
             }
@@ -39,6 +38,9 @@ public class AreaAttackSkill : Skill
     {
         // TODO
         level++;
+        range += 1;
+        damage += 1;
+        SetUp();
     }
 
 }

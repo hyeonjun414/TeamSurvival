@@ -45,7 +45,7 @@ public class RotateAroundObject : MonoBehaviour
                 {
                     IDamageable target = hit.transform.GetComponent<IDamageable>();
                     target?.Hit(damage);
-
+                    GameManager.Instance.CreateDamage(hit.transform.position, damage);
                     Debug.Log(damage);
                 }
             }

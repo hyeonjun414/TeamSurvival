@@ -55,7 +55,7 @@ public class TitleManager : MonoBehaviour
     public void GameExit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void SetEffectVolume(float value)

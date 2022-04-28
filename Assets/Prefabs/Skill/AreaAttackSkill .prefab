@@ -47,7 +47,9 @@ MonoBehaviour:
   owner: {fileID: 0}
   curCooldown: 0
   cooldown: 2
-  damage: 5
+  damage: 1
+  level: 1
+  maxLevel: 6
   data: {fileID: 11400000, guid: 17f9414cbbdfe9a47af801a8360f8e02, type: 2}
   hitEffect: {fileID: 638068802791808499, guid: d4df27da5ae1dc540b841c4a0d4bef69,
     type: 3}
