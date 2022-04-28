@@ -9,6 +9,8 @@ public class EvilEyeSkill : Skill
     public float range = 20f;
     public int count = 2;
 
+    public bool isShot = false;
+
     public Vector3 followPos = new Vector3(-0.5f, 0.5f, 0);
 
     protected override void Start()
@@ -20,7 +22,7 @@ public class EvilEyeSkill : Skill
     protected override void Update()
     {
         base.Update();
-        if(owner != null)   
+        if(owner != null && !isShot)   
             transform.position = Vector3.Lerp(transform.position, owner.transform.position + followPos, Time.deltaTime);
     }
     public override void Attack()
@@ -43,6 +45,8 @@ public class EvilEyeSkill : Skill
                     Instantiate(hitEffect, hit.transform.position, Quaternion.identity);
                 }
             }
+            StopCoroutine("StopTrace");
+            StartCoroutine("StopTrace");
         }
     }
 
@@ -56,5 +60,12 @@ public class EvilEyeSkill : Skill
         level++;
         damage += 3;
         count += 2;
+    }
+
+    IEnumerator StopTrace()
+    {
+        isShot = true;
+        yield return new WaitForSeconds(0.5f);
+        isShot = false;
     }
 }
