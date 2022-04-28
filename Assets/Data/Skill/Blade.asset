@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a63d8d1c0bdfff43800906f304b90d2, type: 3}
+  m_Name: Blade
+  m_EditorClassIdentifier: 
+  name: Blade
+  desc: "\uC8FC\uBCC0 \uC801\uC744 \uCD94\uC801\uD558\uB294 \uCE7C\uB0A0\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4."
+  icon: {fileID: 8922463242231920201, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
+  rewardType: 1
+  skillType: 5
+  targetSkill: {fileID: 14601564599997242, guid: d9c3c99f7c051624ea8bb38f5be28cb8,
+    type: 3}

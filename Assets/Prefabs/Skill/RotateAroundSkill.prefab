@@ -47,9 +47,12 @@ MonoBehaviour:
   curCooldown: 0
   cooldown: 7
   damage: 5
+  level: 1
+  maxLevel: 6
   data: {fileID: 11400000, guid: e06535779fe3495468b70134f0c609f6, type: 2}
-  prfSpawn: {fileID: 950670938593768296, guid: 3044ac3f687c7f24990cd66fa0339c30, type: 3}
-  range: 4
-  speed: 90
+  prfSpawn: {fileID: 8802201878295962136, guid: 3d8b436c06fa52149b7ee3bd490065db,
+    type: 3}
+  range: 5
+  speed: 120
   duration: 4
   count: 1

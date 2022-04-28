@@ -46,11 +46,12 @@ MonoBehaviour:
   owner: {fileID: 0}
   curCooldown: 0
   cooldown: 5
-  damage: 5
+  damage: 6
+  level: 1
+  maxLevel: 6
   data: {fileID: 11400000, guid: 727a4bc8d8b2b0c43bdcb6954f3f05e6, type: 2}
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 2830882349580211685, guid: 6c6f342b809ebcb4fb83550ac04de15d,
+    type: 3}
   chainRange: 6
-  count: 2
+  count: 3
   interval: 0.1
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
