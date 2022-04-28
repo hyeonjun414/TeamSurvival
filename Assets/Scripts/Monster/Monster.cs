@@ -167,6 +167,7 @@ public class Monster : MonoBehaviour , IDamageable , IAttackable
     {
         is_die = true;
         Color color = spriteRenderer.color;
+        spriteRenderer.color = new Color(255, 255, 255);
         while (color.a > 0) 
         {
            

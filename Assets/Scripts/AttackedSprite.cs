@@ -8,13 +8,25 @@ public class AttackedSprite : MonoBehaviour
     public float duration;
     public SpriteRenderer spriteRenderer;
     private bool is_attacked = false;
-    private Color attackedColor = new Color(255, 0, 0);
-    private Color noneAttackedcolor = new Color(255, 255, 255);
+    private Color attackedColor;
+    private Color noneAttackedcolor ;
 
-    private void OnEnable()
+    private void Awake()
+    {
+       attackedColor = new Color(255, 0, 0);
+       noneAttackedcolor = new Color(255, 255, 255);
+
+     }
+
+
+     private void OnEnable()
     {
         is_attacked = false;
-        spriteRenderer.color = noneAttackedcolor;
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = noneAttackedcolor;
+        }
     }
 
 
@@ -43,12 +55,12 @@ public class AttackedSprite : MonoBehaviour
     IEnumerator AttackedColorChangeRoutin()
     {
         float time = 0f;
-
+        spriteRenderer.color = attackedColor;
         while (time < duration)
         {
             time += Time.deltaTime;
 
-            spriteRenderer.color = attackedColor;
+            
 
             yield return null;
         }
