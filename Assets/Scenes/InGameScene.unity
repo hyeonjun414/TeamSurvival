@@ -52581,8 +52581,6 @@ GameObject:
   m_Component:
   - component: {fileID: 778195647}
   - component: {fileID: 778195646}
-  - component: {fileID: 778195648}
-  - component: {fileID: 778195649}
   - component: {fileID: 778195651}
   - component: {fileID: 778195652}
   - component: {fileID: 778195650}
@@ -52634,36 +52632,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &778195648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778195645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97428952c0080e6419733a3c570c6c8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ui: {fileID: 0}
-  title: {fileID: 0}
-  desc: {fileID: 0}
---- !u!114 &778195649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778195645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfae557d888c3440a99b15dfeb2b1f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items: []
-  maxSize: 20
-  inventoryUI: {fileID: 0}
 --- !u!114 &778195650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52723,6 +52691,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 65e094377399469439c484503e02a539, type: 2}
   - {fileID: 11400000, guid: 727a4bc8d8b2b0c43bdcb6954f3f05e6, type: 2}
   - {fileID: 11400000, guid: e06535779fe3495468b70134f0c609f6, type: 2}
+  - {fileID: 11400000, guid: 90bd22401ed9ac1489165fb07cd75c95, type: 2}
   rewardList: []
 --- !u!114 &778195653
 MonoBehaviour:
@@ -52742,6 +52711,7 @@ MonoBehaviour:
   - {fileID: 1663725499}
   monsterDataList:
   - {fileID: 11400000, guid: 87ff2f12bb58d8a46b1d9c121ee65ef3, type: 2}
+  monsterMax: 500
 --- !u!1 &804524113
 GameObject:
   m_ObjectHideFlags: 0
