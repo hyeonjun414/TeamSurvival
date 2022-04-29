@@ -59294,6 +59294,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066831263}
   m_CullTransparentMesh: 0
+--- !u!114 &1086523790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2952099973795649977, guid: ad15ec208d8fd0e4bb09fa15c7b38d12,
+    type: 3}
+  m_PrefabInstance: {fileID: 768755574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4a53cee89bb3b48a9e3acdd3220e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1155905625
 GameObject:
   m_ObjectHideFlags: 0
@@ -60565,9 +60577,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfae557d888c3440a99b15dfeb2b1f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slot0: {fileID: 0}
+  slot1: {fileID: 0}
+  slot2: {fileID: 0}
   items: []
-  maxSize: 20
-  inventoryUI: {fileID: 0}
+  potionMaxSize: 99
+  stopMaxSize: 5
+  reviveMaxSize: 1
 --- !u!114 &1535631937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60580,9 +60596,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97428952c0080e6419733a3c570c6c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
-  title: {fileID: 0}
-  desc: {fileID: 0}
+  quests: []
+  curQuests: []
+  title0: {fileID: 0}
+  sub0: {fileID: 0}
+  count0: {fileID: 0}
+  title1: {fileID: 0}
+  sub1: {fileID: 0}
+  count1: {fileID: 0}
+  title2: {fileID: 0}
+  sub2: {fileID: 0}
+  count2: {fileID: 0}
 --- !u!114 &1535631938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60595,7 +60619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73447adfdeff2348875b43d9ab22e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1086523790}
   canvas: {fileID: 1861211941}
   dialog: {fileID: 0}
   nameText: {fileID: 0}
