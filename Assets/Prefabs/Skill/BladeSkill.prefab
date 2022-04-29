@@ -46,7 +46,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   curCooldown: 8
   cooldown: 12
-  damage: 1
+  damage: 3
   level: 1
   maxLevel: 6
   data: {fileID: 11400000, guid: 90bd22401ed9ac1489165fb07cd75c95, type: 2}

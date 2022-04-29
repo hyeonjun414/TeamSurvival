@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ChainSkill
   m_EditorClassIdentifier: 
   name: "\uC5F0\uC1C4 \uBC88\uAC1C"
-  desc: "\uC8FC\uBCC0\uC758 \uC801 \uC0AC\uC774\uB97C \uD295\uAE30\uBA70 \uACF5\uACA9\uD558\uB294
-    \uBC88\uAC1C\uB97C \uBC1C\uC0AC\uD569\uB2C8\uB2E4"
+  desc: "\uC801 \uC0AC\uC774\uB97C \uD295\uAE30\uBA70 \uACF5\uACA9\uD558\uB294 \uBC88\uAC1C\uB97C
+    \uBC1C\uC0AC\uD569\uB2C8\uB2E4"
   icon: {fileID: 2830813888857636086, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
   rewardType: 1
   skillType: 4
   targetSkill: {fileID: 3686690405071005957, guid: 17c9a311411f87846b759f7fc1c404a6,
     type: 3}
+  desc2LVUp: "\uACF5\uACA9\uB825\uACFC \uC5F0\uC1C4 \uD69F\uC218\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."

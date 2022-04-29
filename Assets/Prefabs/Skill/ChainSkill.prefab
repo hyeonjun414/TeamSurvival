@@ -53,5 +53,5 @@ MonoBehaviour:
   hitEffect: {fileID: 2830882349580211685, guid: 6c6f342b809ebcb4fb83550ac04de15d,
     type: 3}
   chainRange: 6
-  count: 3
-  interval: 0.1
+  count: 4
+  interval: 0.07

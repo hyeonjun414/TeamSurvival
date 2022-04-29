@@ -56,7 +56,8 @@ public class EvilEyeSkill : Skill
 
     public override void LevelUp()
     {
-        // TODO
+        if (level >= maxLevel) return;
+        
         level++;
         damage += 3;
         count += 2;

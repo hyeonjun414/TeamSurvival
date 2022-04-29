@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Laser
   m_EditorClassIdentifier: 
   name: "\uC774\uBE14\uC544\uC774"
-  desc: "\uD50C\uB808\uC774\uC5B4\uB97C \uB530\uB77C\uB2E4\uB2C8\uBA70 \uC8FC\uBCC0\uC5D0
-    \uB808\uC774\uC800 \uACF5\uACA9\uC744 \uD558\uB294 \uC18C\uD658\uC218\uB97C \uC5BB\uB294\uB2E4."
+  desc: "\uD50C\uB808\uC774\uC5B4\uB97C \uB530\uB77C\uB2E4\uB2C8\uB294 \uC18C\uD658\uC218\uB97C
+    \uC5BB\uC2B5\uB2C8\uB2E4."
   icon: {fileID: -4021793204748226321, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
   rewardType: 1
   skillType: 2
   targetSkill: {fileID: 4855689615658303247, guid: 96df58e6a810027479d644976980d9f1,
     type: 3}
+  desc2LVUp: "\uB808\uC774\uC800\uC758 \uACF5\uACA9\uB825\uACFC \uAC1C\uC218\uAC00
+    \uC99D\uAC00\uD569\uB2C8\uB2E4."

@@ -11,19 +11,19 @@ public class BladeSkill : Skill
     {
         Blade newBlade = Instantiate(prfBlade, transform.position, Quaternion.identity).GetComponent<Blade>();
         newBlade.duration = duration;
+        newBlade.damage = damage;
     }
     
     public override void SetUp()
     {
-        // TODO
     }
 
     public override void LevelUp()
     {
-        // TODO
+        if (level >= maxLevel) return;
+        
         level++;
         duration += 1f;
         cooldown -= 1f;
-        //scale;
     }
 }

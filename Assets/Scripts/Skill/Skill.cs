@@ -10,7 +10,7 @@ public abstract class Skill : MonoBehaviour,IAttackable
     public int damage;
 
     public int level = 1;
-    public int maxLevel = 6;
+    public int maxLevel = 6;  // 미구현
 
     public SkillData data;
 

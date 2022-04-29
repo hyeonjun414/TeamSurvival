@@ -56,7 +56,8 @@ public class FireballSkill : Skill
 
     public override void LevelUp()
     {
-        // TODO
+        if (level >= maxLevel) return;
+        
         level++;
         ballScale *= 1.1f;
         ballSpeed *= 1.1f;

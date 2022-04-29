@@ -40,6 +40,8 @@ public class RotateAroundSkill : Skill
 
     public override void LevelUp()
     {
+        if (level >= maxLevel) return;
+        
         level++;
         count++;
     }

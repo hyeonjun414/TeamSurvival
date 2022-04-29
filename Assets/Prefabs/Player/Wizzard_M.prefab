@@ -553,6 +553,7 @@ MonoBehaviour:
   projScale: 1
   projSpeed: 1
   attackSpeed: 0.5
+  Hpbar: {fileID: 1112875422}
   weaponPoint: {fileID: 2952099973798275467}
   skillPos: {fileID: 2952099975381573882}
   weaponDistance: 1

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IAttackable , IDamageable
 {
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
     public float projScale = 1f;
     public float projSpeed = 1f;
     public float attackSpeed = 1f;
+    public Slider Hpbar;
 
 
     private AttackedSprite attackedSprite;
@@ -42,7 +45,7 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
             {
                 level++;
                 curExp -= maxExp;
-                maxExp = maxExp * 1.2f;
+                maxExp = maxExp * 2f;
                 UIManager.Instance.curLevel.text = level.ToString();
                 RewardManager.Instance.ExcuteReward(RewardType.Skill);
             }
@@ -168,6 +171,8 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
             {
 
                 curHp -= damage;
+                //Debug.Log(curHp + " / " + maxHp);
+                Hpbar.value = (float)curHp / (float)maxHp;
 
             }
             else
@@ -177,8 +182,10 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
 
             if (curHp <= 0)
             {
-                GameManager.Instance.PauseGame();
-                //이벤트 처리
+                //GameManager.Instance.PauseGame();
+                ObjectPooling.Instance.ObjectPoolingReset();
+                //die
+                SceneManager.LoadScene("TitleScene");
             }
         });
 
@@ -194,7 +201,7 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
         {
             GameObject obj;
             Projectile proj;
-            EXP++;
+            //EXP++;
             float posX;
             float posY;
             if (isMultiShot)

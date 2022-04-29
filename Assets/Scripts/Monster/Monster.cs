@@ -107,7 +107,7 @@ public class Monster : MonoBehaviour , IDamageable , IAttackable
         {
 
             StartCoroutine(SpriteFade());
-           
+            GameManager.Instance.player.EXP++;
         }
 
 

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   name: "\uD30C\uC774\uC5B4\uBCFC"
-  desc: "\uBC18\uACBD \uC774\uB0B4\uC758 \uBAAC\uC2A4\uD130\uC5D0\uAC8C \uBD88\uB369\uC774\uB97C
+  desc: "\uAC00\uC7A5 \uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uD654\uC5FC\uAD6C\uB97C
     \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
   icon: {fileID: 2180804341999006710, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
   rewardType: 1
   skillType: 1
   targetSkill: {fileID: 8983952298104487563, guid: 9ed1120020f4a1842a470a769085e6d6,
     type: 3}
+  desc2LVUp: "\uACF5\uACA9\uB825\uACFC \uD06C\uAE30 \uBC0F \uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."

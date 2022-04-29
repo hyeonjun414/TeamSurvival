@@ -95,11 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac5d5e5a72c3db479e07bcbd31623e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEff: {fileID: 8282182885666895381, guid: fcc26a9b0eb02f449bbac32ef1bc6d39, type: 3}
   damage: 2
   duration: 0
   scale: {x: 3, y: 1.8}
   dirVec: {x: 0, y: 0}
   speed: 8
+  maxRange: 20
 --- !u!95 &8351687498782661227
 Animator:
   serializedVersion: 3

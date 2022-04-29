@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Blade
   m_EditorClassIdentifier: 
   name: Blade
-  desc: "\uC8FC\uBCC0 \uC801\uC744 \uCD94\uC801\uD558\uB294 \uCE7C\uB0A0\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4."
+  desc: "\uC801\uC744 \uCD94\uC801\uD558\uB294 \uCE7C\uB0A0\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4."
   icon: {fileID: 8922463242231920201, guid: d69448c1279930f4f80520dd26e4b11f, type: 3}
   rewardType: 1
   skillType: 5
   targetSkill: {fileID: 14601564599997242, guid: d9c3c99f7c051624ea8bb38f5be28cb8,
     type: 3}
+  desc2LVUp: "\uC9C0\uC18D\uC2DC\uAC04\uC740 \uC99D\uAC00\uD558\uACE0 \uCFE8\uD0C0\uC784\uC740
+    \uAC10\uC18C\uD569\uB2C8\uB2E4."

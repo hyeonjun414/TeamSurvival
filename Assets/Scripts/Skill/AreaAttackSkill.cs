@@ -36,7 +36,8 @@ public class AreaAttackSkill : Skill
 
     public override void LevelUp()
     {
-        // TODO
+        if (level >= maxLevel) return;
+
         level++;
         range += 1;
         damage += 1;

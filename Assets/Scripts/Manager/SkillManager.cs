@@ -41,6 +41,10 @@ public class SkillManager : SingletonManager<SkillManager>
             newSkill.SetUp();
             skillList.Add(newSkill); 
             skillUI.UpdateUI();
+
+            // SkillData의 desc 변경 작업
+            newSkill.data.SwitchText();
+            
             return true;
         }
     }
