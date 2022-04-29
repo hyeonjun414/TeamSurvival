@@ -91,6 +91,9 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
 
     bool isDelay = false;
 
+    public LayerMask layerMask;
+
+
     void Start()
     {
         GameManager.Instance.player = this;
@@ -126,8 +129,17 @@ public class Player : MonoBehaviour, IAttackable , IDamageable
 
         anim.SetFloat("Speed", moveVec.magnitude);
 
+        if (Physics2D.Raycast(transform.position, new Vector2(hSpeed, 0), 1f, layerMask))
+        {
+            hSpeed = 0;
+        }
 
-        transform.Translate(new Vector2(hSpeed, vSpeed) * moveSpeed * Time.deltaTime);
+        if (Physics2D.Raycast(transform.position, new Vector2(0, vSpeed), 1f, layerMask))
+        {
+            vSpeed = 0;
+        }
+
+        transform.Translate(new Vector2(hSpeed, vSpeed).normalized * moveSpeed * Time.deltaTime);
     }
     private void Tracking()
     {
